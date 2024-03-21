@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Protocol xmlns="http://www.skyline.be/protocol">
+	<Name>Hello InterApp Communications</Name>
+	<Description>HelloIacDriver DataMiner connector</Description>
+	<Version>1.0.0.1</Version>
+	<IntegrationID>DMS-DRV-0001</IntegrationID>
+	<Provider>Skyline Communications</Provider>
+	<Vendor>ACME</Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.1</VendorOID>
+	<DeviceOID>11001100</DeviceOID>
+	<ElementType>Protocol</ElementType>
+	<Type relativeTimers="true">virtual</Type>
+	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+	<SNMP includepages="true">auto</SNMP>
+
+	<Compliancies>
+		<CassandraReady>true</CassandraReady>
+		<MinimumRequiredVersion>10.2.0.0 - 12603</MinimumRequiredVersion>
+	</Compliancies>
+
+	<Params>
+		<Param id="2">
+			<Name>AfterStartup</Name>
+			<Description>After Startup</Description>
+			<Type>dummy</Type>
+		</Param>
+		
+		<Param id="1000">
+			<Name>creditCards</Name>
+			<Description>Information on gathered credit cards</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=";save"/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=";save"/>
+				<ColumnOption idx="3" pid="1004" type="retrieved" options=";save"/>
+				<ColumnOption idx="4" pid="1005" type="retrieved" options=";save"/>
+				<ColumnOption idx="5" pid="1006" type="retrieved" options=";save"/>
+				<ColumnOption idx="6" pid="1007" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>tableInformation</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5-1007|6,width:120-150-135-143-140-140-115,sort:STRING-STRING-STRING-STRING-INT-INT-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001" trending="false">
+			<Name>cardNumber</Name>
+			<Description>Card Number</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Unique credit card number</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002" trending="false">
+			<Name>cardHolder</Name>
+			<Description>Card Holder</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>First and second name of the card holder</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003" trending="false">
+			<Name>cardExpirationDate</Name>
+			<Description>Card Expiration Date</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Expiration date in "month/year" format.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1004" trending="false">
+			<Name>motherMaidenName</Name>
+			<Description>Mother Maiden Name</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>User's mother's maiden name</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1005" trending="false">
+			<Name>messageTimeSent</Name>
+			<Description>Time Sent</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time when the message was sent to the driver</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Decimals>8</Decimals>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Decimals>8</Decimals>
+			</Display>
+			<Measurement>
+				<Type options="dateTime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1006" trending="false">
+			<Name>messageTimeReceived</Name>
+			<Description>Time Received</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time when the message was received by the driver</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Decimals>8</Decimals>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Decimals>8</Decimals>
+			</Display>
+			<Measurement>
+				<Type options="dateTime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1007" trending="false">
+			<Name>cardUserAction</Name>
+			<Description>User Action</Description>
+			<Type>write</Type>
+			<Information>
+				<Subtext>Remove card information from the list.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Delete</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="9000000" trending="false">
+			<Name>clp_interApp_receive</Name>
+			<Description>Inter App Receiver</Description>
+			<Information>
+				<Subtext>Contains the raw serialized InterApp Command (InterAppCall or Message) sent from an external source.</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<!--Used for Inter App communication.-->
+				<RTDisplay onAppLevel="true">true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9000001" trending="false">
+			<Name>clp_interApp_return</Name>
+			<Description>Inter App Return</Description>
+			<Information>
+				<Subtext>Contains the raw serialized Message that serves as a response to an external source.</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<!--Used for Inter App communication.-->
+				<RTDisplay onAppLevel="true">true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
+		<QAction id="1000" name="DeleteCard" encoding="csharp" triggers="1007" row="true">
+		</QAction>
+		<QAction id="9000000" name="ProcessInterAppReceived" encoding="csharp" triggers="9000000">
+		</QAction>
+	</QActions>
+
+	<Groups>
+		<Group id="2">
+			<Name>After Startup</Name>
+			<Description>After Startup</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>2</Action>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Triggers>
+		<Trigger id="1">
+			<Name>After Startup</Name>
+			<On>protocol</On>
+			<Time>after startup</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>After Startup Group</Name>
+			<On id="2">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="2">
+			<Name>After Startup QAction</Name>
+			<On id="2">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+	</Actions>
+
+	<Timers></Timers>
+
+	<VersionHistory>
+		<Branches>
+			<Branch id="1">
+				<Comment>Main Branch</Comment>
+				<SystemVersions>
+					<SystemVersion id="0">
+						<MajorVersions>
+							<MajorVersion id="0">
+								<MinorVersions>
+									<MinorVersion id="1">
+										<Date>2024-03-20</Date>
+										<Provider>
+											<Author>Enver Podgorcevic</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<NewFeature>Initial version</NewFeature>
+										</Changes>
+									</MinorVersion>
+								</MinorVersions>
+							</MajorVersion>
+						</MajorVersions>
+					</SystemVersion>
+				</SystemVersions>
+			</Branch>
+		</Branches>
+	</VersionHistory>
+
+</Protocol>

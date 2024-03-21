@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QAction_1</name>
+    </assembly>
+    <members>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.CreateReturnMessage">
+            <summary>
+            Creates a return Message.
+            </summary>
+            <returns>A message representing the response for the processed message.</returns>
+        </member>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.DataGets(System.Object)">
+            <summary>
+            Reads data from SLProtocol, Engine or other data sources.
+            </summary>
+            <param name="dataSource">SLProtocol, Engine, or other data sources.</param>
+        </member>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.DataSets(System.Object)">
+            <summary>
+            Writes data to SLProtocol, Engine, or another data destination.
+            </summary>
+            <param name="dataDestination">SLProtocol, Engine, or another data destination.</param>
+        </member>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.Modify">
+            <summary>
+            Modifies retrieved data and Message data into a correct format for setting.
+            </summary>
+        </member>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.Parse">
+            <summary>
+            Parses the data retrieved from a data source in DataGets.
+            </summary>
+        </member>
+        <member name="M:MyApi.MyExecutors.CreateRowExecutor.Validate">
+            <summary>
+            Validates received data for validity.
+            </summary>
+            <returns>A boolean indicating if the received data is valid.</returns>
+        </member>
+    </members>
+</doc>

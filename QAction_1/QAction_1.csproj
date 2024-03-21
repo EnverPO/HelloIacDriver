@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Skyline.DataMiner.ConnectorAPI.SkylineCommunications.HelloInterAppCalls" Version="1.0.1" />
+    <PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Common" Version="1.1.1.6" />
+    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
+    <PackageReference Include="System.Runtime.Serialization.Xml" Version="4.3.0" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties DisLinkId="1" DisProjectType="qactionProject" DisLinkedXmlFile="..\protocol.xml" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
